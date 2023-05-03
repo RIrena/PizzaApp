@@ -1,0 +1,18 @@
+﻿@using PizzaApp.Application.ViewModel.Pizza
+@model PizzaViewModel
+
+
+<form asp-controller="Pizza" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <label asp-for="Name"></label>
+    <input asp-for=Name/>
+
+    <label asp-for="Price"></label>
+    <input asp-for=Price/>
+
+    <label asp-for="Size"></label>
+    <input asp-for=Size/>
+
+    <button>Submit</button>
+</form>

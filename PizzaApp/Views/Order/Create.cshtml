@@ -1,0 +1,33 @@
+﻿@{
+    var counterPizzaId = 0;
+}
+
+<div>
+    <form asp-controller="Order" asp-action="Create" method="post">
+        <div>
+            <h5>Pizzas</h5>
+            @foreach (var pizza in (ViewBag.Pizzas))
+            {
+                <div>
+                    <input name="Pizzas[@counterPizzaId].PizzaId" type="hidden" value="@pizza.Id" />
+                    <br/>
+                    <div>
+                        <label for="pizza-@pizza.Id">
+                            @pizza.Name
+                        </label>
+                        <input name="Pizzas[@counterPizzaId].Value" type="checkbox" id="pizza-@pizza.Id" />
+                    </div>
+                    <div>
+                        <label for="pizza-number-@pizza.Id">
+                            Number of pizzas
+                        </label>
+                        <input name="Pizzas[@counterPizzaId].NumberOfPizzas" type="number" value="1" id="pizza-number-@pizza.Id" />
+                    </div>
+                    <hr/>
+                </div>
+                counterPizzaId++;
+            }
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

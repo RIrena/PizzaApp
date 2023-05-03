@@ -1,0 +1,31 @@
+﻿@using PizzaApp.Domain.Models
+@model Order
+
+<div class="row">
+    <div class="col-2">
+        For User
+    </div>
+    <div class="col-10">
+        @Model.User.Name
+    </div>
+    <div class="col-2">
+        Price
+    </div>
+    <div class="col-10">
+        @Model.Price
+    </div>
+    <div class="col-2">
+        Paid
+    </div>
+    <div class="col-10">
+        @if (Model.IsPaid)
+        {
+            <div>Yes</div>
+        }
+        else
+        {
+            <div>No</div>
+        }
+        @* @Model.IsPaid ? <div>Yes</div> : <div>No</div>*@   
+    </div>  
+</div>
